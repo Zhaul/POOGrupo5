@@ -21,7 +21,7 @@ import pe.edu.utp.entity.Schedule;
 
 /**
  *
- * @author zhaulvaldera
+ * @author zhaul
  */
 public class ScheduleJpaController implements Serializable {
 

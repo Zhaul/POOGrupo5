@@ -21,7 +21,7 @@ import pe.edu.utp.entity.CargoPersonal;
 
 /**
  *
- * @author zhaulvaldera
+ * @author zhaul
  */
 public class CargoPersonalJpaController implements Serializable {
 

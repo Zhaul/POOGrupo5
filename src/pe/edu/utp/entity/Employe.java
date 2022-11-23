@@ -32,6 +32,7 @@ import javax.persistence.TemporalType;
 @NamedQueries({
     @NamedQuery(name = "Employe.findAll", query = "SELECT e FROM Employe e"),
     @NamedQuery(name = "Employe.findById", query = "SELECT e FROM Employe e WHERE e.id = :id"),
+    @NamedQuery(name = "Employe.findByUserAndPassword", query = "SELECT e FROM Employe e WHERE e.user = :user and e.password = :password and e.flagAccess = '1'"),
     @NamedQuery(name = "Employe.findByNames", query = "SELECT e FROM Employe e WHERE e.names = :names"),
     @NamedQuery(name = "Employe.findByLastNames", query = "SELECT e FROM Employe e WHERE e.lastNames = :lastNames"),
     @NamedQuery(name = "Employe.findByTypeDocument", query = "SELECT e FROM Employe e WHERE e.typeDocument = :typeDocument"),

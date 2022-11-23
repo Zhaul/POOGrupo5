@@ -16,18 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import pe.edu.utp.controllers.exceptions.IllegalOrphanException;
 import pe.edu.utp.controllers.exceptions.NonexistentEntityException;
 import pe.edu.utp.entity.Employe;
 
 /**
  *
- * @author zhaulvaldera
+ * @author zhaul
  */
 public class EmployeJpaController implements Serializable {
 
     public EmployeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
+    }
+    public EmployeJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("POOGrupo5PU");
     }
     private EntityManagerFactory emf = null;
 
@@ -239,6 +243,22 @@ public class EmployeJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             return em.find(Employe.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
+    public Employe findByUserAndPassword(String user, String password) {
+        EntityManager em = getEntityManager();
+        try {
+            List<Employe> employes = em.createNamedQuery("Employe.findByUserAndPassword", Employe.class)
+                    .setParameter("user", user)
+                    .setParameter("password", password)
+                    .getResultList();
+            if (employes.size() > 0) {
+                return employes.get(0);
+            }
+            return null;
         } finally {
             em.close();
         }

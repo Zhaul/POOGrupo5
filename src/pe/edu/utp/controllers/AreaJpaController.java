@@ -21,7 +21,7 @@ import pe.edu.utp.entity.Area;
 
 /**
  *
- * @author zhaulvaldera
+ * @author zhaul
  */
 public class AreaJpaController implements Serializable {
 

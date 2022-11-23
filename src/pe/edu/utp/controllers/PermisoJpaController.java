@@ -20,7 +20,7 @@ import pe.edu.utp.entity.Permiso;
 
 /**
  *
- * @author zhaulvaldera
+ * @author zhaul
  */
 public class PermisoJpaController implements Serializable {
 

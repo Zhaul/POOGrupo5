@@ -21,7 +21,7 @@ import pe.edu.utp.entity.Rol;
 
 /**
  *
- * @author zhaulvaldera
+ * @author zhaul
  */
 public class RolJpaController implements Serializable {
 
