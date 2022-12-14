@@ -30,6 +30,7 @@ public class EmployeJpaController implements Serializable {
     public EmployeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+
     public EmployeJpaController() {
         this.emf = Persistence.createEntityManagerFactory("POOGrupo5PU");
     }
@@ -37,6 +38,21 @@ public class EmployeJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+
+    public Employe findByCodeEmployee(String codeEmployee) {
+        EntityManager em = getEntityManager();
+        try {
+            List<Employe> employes = em.createNamedQuery("Employe.findByCodeEmployee", Employe.class)
+                    .setParameter("codeEmployee", codeEmployee)
+                    .getResultList();
+            if (employes.size() > 0) {
+                return employes.get(0);
+            }
+            return null;
+        } finally {
+            em.close();
+        }
     }
 
     public void create(Employe employe) {
@@ -247,7 +263,7 @@ public class EmployeJpaController implements Serializable {
             em.close();
         }
     }
-    
+
     public Employe findByUserAndPassword(String user, String password) {
         EntityManager em = getEntityManager();
         try {
@@ -276,5 +292,5 @@ public class EmployeJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package pe.edu.utp.entity;
 
 import java.io.Serializable;
@@ -23,10 +20,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author zhaulvaldera
- */
 @Entity
 @Table(name = "schedules")
 @NamedQueries({
@@ -35,6 +28,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Schedule.findByHourStart", query = "SELECT s FROM Schedule s WHERE s.hourStart = :hourStart"),
     @NamedQuery(name = "Schedule.findByDateStart", query = "SELECT s FROM Schedule s WHERE s.dateStart = :dateStart"),
     @NamedQuery(name = "Schedule.findByHourEntry", query = "SELECT s FROM Schedule s WHERE s.hourEntry = :hourEntry"),
+    @NamedQuery(name = "Schedule.findByIdEmployee", query = "SELECT s FROM Schedule s WHERE s.idEmploye = :idEmploye"),
     @NamedQuery(name = "Schedule.findByStatus", query = "SELECT s FROM Schedule s WHERE s.status = :status")})
 public class Schedule implements Serializable {
 

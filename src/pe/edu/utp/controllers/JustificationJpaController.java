@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import pe.edu.utp.controllers.exceptions.NonexistentEntityException;
@@ -25,6 +26,11 @@ public class JustificationJpaController implements Serializable {
     public JustificationJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public JustificationJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("POOGrupo5PU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

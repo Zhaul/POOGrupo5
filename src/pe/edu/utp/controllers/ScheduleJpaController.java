@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package pe.edu.utp.controllers;
 
 import java.io.Serializable;
@@ -15,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import pe.edu.utp.controllers.exceptions.IllegalOrphanException;
 import pe.edu.utp.controllers.exceptions.NonexistentEntityException;
 import pe.edu.utp.entity.Schedule;
@@ -28,10 +26,30 @@ public class ScheduleJpaController implements Serializable {
     public ScheduleJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public ScheduleJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("POOGrupo5PU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    
+    public List<Schedule> findByIdEmployee(Employe idEmploye) {
+        EntityManager em = getEntityManager();
+        try {
+            List<Schedule> schedules = em.createNamedQuery("Schedule.findByIdEmployee", Schedule.class)
+                    .setParameter("idEmploye", idEmploye)
+                    .getResultList();
+            if (schedules.size() > 0) {
+                return schedules;
+            }
+            return null;
+        } finally {
+            em.close();
+        }
     }
 
     public void create(Schedule schedule) {

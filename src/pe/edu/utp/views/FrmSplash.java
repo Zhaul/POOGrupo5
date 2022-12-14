@@ -31,17 +31,17 @@ public class FrmSplash extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Mali", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel1.setForeground(new java.awt.Color(25, 114, 87));
         jLabel1.setText("Sistema de Asistencia Nemcor SAC");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         pgbCargando.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        pgbCargando.setForeground(new java.awt.Color(0, 153, 204));
+        pgbCargando.setForeground(new java.awt.Color(25, 114, 87));
         pgbCargando.setValue(1);
         jPanel1.add(pgbCargando, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 357, 430, 10));
 
         lblPorcentaje.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblPorcentaje.setForeground(new java.awt.Color(0, 153, 204));
+        lblPorcentaje.setForeground(new java.awt.Color(25, 114, 87));
         lblPorcentaje.setText("Cargando 100 %");
         jPanel1.add(lblPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 120, 20));
 

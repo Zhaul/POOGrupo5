@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package pe.edu.utp.controllers;
 
 import java.io.Serializable;
@@ -14,19 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import pe.edu.utp.controllers.exceptions.NonexistentEntityException;
 import pe.edu.utp.controllers.exceptions.PreexistingEntityException;
 import pe.edu.utp.entity.Permiso;
 
-/**
- *
- * @author zhaul
- */
 public class PermisoJpaController implements Serializable {
 
     public PermisoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public PermisoJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("POOGrupo5PU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

@@ -45,7 +45,7 @@ public class Justification implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @Column(name = "file")
-    private String file;
+    private byte[] file;
     @Column(name = "reason")
     private String reason;
     @Lob
@@ -78,11 +78,11 @@ public class Justification implements Serializable {
         this.date = date;
     }
 
-    public String getFile() {
+    public byte[] getFile() {
         return file;
     }
 
-    public void setFile(String file) {
+    public void setFile(byte[] file) {
         this.file = file;
     }
 

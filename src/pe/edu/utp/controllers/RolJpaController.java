@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import pe.edu.utp.controllers.exceptions.IllegalOrphanException;
 import pe.edu.utp.controllers.exceptions.NonexistentEntityException;
 import pe.edu.utp.entity.Employe;
@@ -27,6 +28,9 @@ public class RolJpaController implements Serializable {
 
     public RolJpaController(EntityManagerFactory emf) {
         this.emf = emf;
+    }
+    public RolJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("POOGrupo5PU");
     }
     private EntityManagerFactory emf = null;
 
@@ -196,6 +200,10 @@ public class RolJpaController implements Serializable {
     public List<Rol> findRolEntities() {
         return findRolEntities(true, -1, -1);
     }
+    
+    public List<Rol> findRolByStatus(String status) {
+        return findRolEntities(true, -1, -1);
+    }
 
     public List<Rol> findRolEntities(int maxResults, int firstResult) {
         return findRolEntities(false, maxResults, firstResult);
@@ -237,6 +245,10 @@ public class RolJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public void edit(Employe employe) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
